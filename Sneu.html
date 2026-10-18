@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d20">
+<title>SNEU.EXE — A little universe for you</title>
+<style>
+:root{--bg:#080d20;--panel:rgba(18,25,54,.78);--line:rgba(184,176,255,.22);--lav:#c5b8ff;--pink:#ffb8d2;--cream:#f4eddf;--muted:#aab4d7;--glow:0 0 35px rgba(164,145,255,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% 0%,#1b2450 0%,#0b1026 42%,#060914 100%);color:#f4f2ff;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}button,textarea,input{font:inherit}button{cursor:pointer}button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-offset:3px}#sky{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.8}.app{position:relative;z-index:1}.topbar{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:linear-gradient(#080d20e8,transparent);backdrop-filter:blur(5px)}.brand{font-size:.78rem;letter-spacing:.2em;color:#d8d0ff;font-weight:800}.sound{border:1px solid var(--line);background:#111831c9;color:#d8d0ff;border-radius:999px;padding:8px 12px;font-size:.78rem}.wrap{width:min(900px,100%);margin:auto;padding:0 18px}.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:100px 0 54px}.hero-inner{max-width:690px}.eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lav)}.moon{width:92px;height:92px;margin:25px auto 28px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff7ff,#d6ccff 40%,#9b91f1 72%,#5b5aa8);box-shadow:0 0 35px #a9a0ff77,0 0 100px #8c7dff25;position:relative}.moon:after{content:"";position:absolute;width:80px;height:80px;border-radius:50%;background:#141b3a;top:-8px;left:22px;opacity:.95}.hero h1{font-size:clamp(3.1rem,13vw,6.6rem);line-height:.94;letter-spacing:-.07em;margin:0;background:linear-gradient(120deg,#fff 10%,#d6ccff 48%,#ffbfd9 95%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 45px #b6a9ff14}.hero p{color:#bdc5e5;line-height:1.8;max-width:470px;margin:22px auto 26px}.primary,.secondary{border:0;border-radius:999px;padding:14px 21px;font-weight:800;transition:transform .2s,box-shadow .2s}.primary{background:linear-gradient(115deg,#c5b8ff,#f6bad9);color:#17132e;box-shadow:0 8px 30px #b7a5ff28}.primary:hover,.secondary:hover{transform:translateY(-2px);box-shadow:var(--glow)}.secondary{background:#1a2142;color:#e8e2ff;border:1px solid var(--line)}.micro{font-size:.75rem;color:#8792bc;margin-top:15px}.section{padding:74px 0;scroll-margin-top:70px}.section-head{margin-bottom:24px}.section-head .eyebrow{margin-bottom:10px}.section h2{font-size:clamp(2rem,7vw,3.3rem);letter-spacing:-.045em;margin:0 0 12px}.section-intro{color:var(--muted);line-height:1.75;margin:0;max-width:620px}.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(25,34,72,.86),rgba(11,16,36,.88));border-radius:22px;padding:20px;box-shadow:var(--glow);position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:120px;height:120px;right:-65px;top:-65px;border-radius:50%;background:#b6a8ff12}.card button.reveal{width:100%;text-align:left;background:transparent;color:inherit;border:0;padding:0;position:relative;z-index:1}.emoji{font-size:1.7rem;display:block;margin-bottom:12px}.card h3{font-size:1.05rem;margin:0 0 8px}.card p{font-size:.9rem;color:#b6c0e0;line-height:1.65;margin:0}.hidden-note{display:none;margin-top:14px;padding-top:13px;border-top:1px dashed #a9a0f94c;color:#f6d7e6;line-height:1.65;font-size:.9rem}.card.open .hidden-note{display:block;animation:fade .4s ease}.tiny{font-size:.73rem;color:#9ea9d0;letter-spacing:.06em}.memory{background:#f1e8d8;color:#2c2940;border-radius:8px;padding:14px 14px 19px;box-shadow:0 14px 32px #0004;transform:rotate(-1.3deg);min-height:185px}.memory:nth-child(2){transform:rotate(1.8deg);background:#e6e4f8}.memory:nth-child(3){transform:rotate(-.8deg);background:#f4dce7}.tape{height:17px;width:68px;background:#b9b2edaa;position:absolute;top:-5px;left:calc(50% - 34px);transform:rotate(-4deg)}.memory-wrap{position:relative;padding-top:10px}.memory .tiny{color:#77718b}.memory h3{font-family:Georgia,serif;font-size:1.15rem;margin:12px 0}.memory p{font-size:.9rem;line-height:1.6;margin:0}.edit-hint{font-size:.75rem;color:#9ba6cb;margin-top:15px}.wish-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.wish{min-height:120px;border:1px solid #bcb1ff33;background:#151c3a9c;border-radius:18px;color:#eae5ff;padding:14px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:.2s}.wish:hover{transform:translateY(-3px);background:#20284e}.wish span{font-size:1.65rem}.wish strong{font-size:.82rem}.wish small{font-size:.75rem;color:#b9c2e4}.letter-box{border:1px solid #e9d8f05c;border-radius:24px;padding:24px;background:linear-gradient(145deg,#f2e8da,#dfd9f4);color:#2b2940;box-shadow:0 20px 70px #0004;position:relative;overflow:hidden}.letter-box:after{content:"✦";position:absolute;right:20px;top:10px;font-size:2.3rem;color:#9b8dd8;opacity:.5}.letter-top{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#77708f}.letter-box h3{font-family:Georgia,serif;font-size:1.65rem;margin:15px 0}.letter-text{font-family:Georgia,serif;line-height:1.9;font-size:1.02rem;white-space:pre-wrap}.letter-text .placeholder{background:#fff5b7;padding:0 3px;border-radius:3px}.letter-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.editor{display:none;margin-top:16px}.editor.show{display:block}.editor label{display:block;font-size:.8rem;margin:12px 0 6px;color:#6a6481}.editor textarea,.editor input{width:100%;border:1px solid #c2b7d9;border-radius:12px;padding:12px;background:#fffaf3;color:#2b2940;resize:vertical}.footer{text-align:center;padding:60px 0 80px;color:#8f9bc3}.footer .final-star{font-size:2.3rem;color:#d7ccff}.footer p{line-height:1.8}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);opacity:0;background:#f2e8da;color:#2b2940;border-radius:999px;padding:11px 17px;font-size:.85rem;z-index:20;transition:.3s;pointer-events:none;box-shadow:0 10px 30px #0005}.toast.show{opacity:1;transform:translate(-50%,0)}.confetti{position:fixed;top:-20px;z-index:30;pointer-events:none;animation:fall 3s linear forwards}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:0}}@media(max-width:560px){.wrap{padding:0 15px}.section{padding:55px 0}.card-grid{grid-template-columns:1fr}.card{padding:18px}.wish-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.letter-box{padding:20px}.hero p{font-size:.95rem}.memory{min-height:175px}.topbar{padding:12px 15px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="app">
+<header class="topbar"><div class="brand">SNEU.EXE <span style="color:#ffb8d2">✦</span></div><button class="sound" id="soundBtn" aria-pressed="false" title="Toggle ambient sound">♫ sound: off</button></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-inner">
+<div class="eyebrow">a tiny birthday transmission · 19.10.2026</div><div class="moon" aria-hidden="true"></div>
+<h1>Hey,<br>Sneu.</h1>
+<p>Somewhere on the internet, there's a whole little universe waiting for one very specific person.<br><strong>Yep. Snew snew 🤏 — that's you.</strong></p>
+<button class="primary" id="enterBtn">ENTER YOUR UNIVERSE ✦</button>
+<div class="micro">P.S. suspicious levels of sibling energy detected.</div>
+</div></section>
+<div id="journey" hidden>
+<section class="section" id="archive"><div class="wrap">
+<div class="section-head"><div class="eyebrow">file 01 · classified nonsense</div><h2>The Snew snew archive 🤏</h2><p class="section-intro">A very serious collection of absolutely unserious birthday material. Tap each file. The authorities (me) cannot stop you.</p></div>
+<div class="card-grid">
+<article class="card"><button class="reveal"><span class="emoji">🫡</span><h3>Official birthday report</h3><p>Tap to access the highly confidential findings.</p></button><div class="hidden-note">Subject: Snew snew 🤏<br>Current status: birthday girl detected.<br>Threat level: dangerously adorable and probably a little chaotic. This report is scientifically unserious.</div></article>
+<article class="card"><button class="reveal"><span class="emoji">💀</span><h3>Certified chaos energy</h3><p>Some people are easy to describe. You? Good luck.</p></button><div class="hidden-note">A little bit of everything in one human. One moment it's chaos, next moment it's soft hours. The plot refuses to stay predictable. Honestly? Iconic.</div></article>
+<article class="card"><button class="reveal"><span class="emoji">🏆</span><h3>Award unlocked</h3><p>Open to reveal your extremely official award.</p></button><div class="hidden-note">🏆 The “somehow became my sister through a screen” award. Rare. Untradeable. No refunds. Comes with lifetime sibling-level teasing.</div></article>
+<article class="card"><button class="reveal"><span class="emoji">🔒</span><h3>Do not open. Seriously.</h3><p>It says not to open. You know what to do.</p></button><div class="hidden-note">HAHA I KNEW YOU'D TAP IT 😭 Anyway, happy birthday, Snew snew 🤏. You have now officially been caught being curious. Evidence archived.</div></article>
+</div></div></section>
+<section class="section" id="memories"><div class="wrap">
+<div class="section-head"><div class="eyebrow">file 02 · keep forever</div><h2>Our little corner of the internet</h2><p class="section-intro">Some moments don't need a perfect photo to matter. Sometimes, all it takes is remembering how a chapter felt.</p></div>
+<div class="card-grid">
+<div class="memory-wrap"><div class="tape"></div><article class="memory"><div class="tiny">MEMORY CARD · 001</div><h3>Gangster GC 🖤</h3><p>I stillllllllllllllll remember and loveeeeee the time we have in gangster gc and after it.</p></article></div>
+<div class="memory-wrap"><div class="tape"></div><article class="memory"><div class="tiny">MEMORY CARD · 002</div><h3>And after that…</h3><p>That chapter didn't stop being special just because time moved on. Some memories stay warm.</p></article></div>
+</div>
+<p class="edit-hint">You can add more memories, screenshots, or your own captions to this page whenever you want.</p>
+</div></section>
+<section class="section" id="wishes"><div class="wrap">
+<div class="section-head"><div class="eyebrow">file 03 · little wishes for you</div><h2>Pick a star ✨</h2><p class="section-intro">Tap a star to open a tiny birthday wish. Collect all six if you want the full constellation.</p></div>
+<div class="wish-grid">
+<button class="wish" data-wish="I hope life gives you more reasons to laugh until your cheeks hurt."><span>🌟</span><strong>Joy</strong><small>tap to open</small></button>
+<button class="wish" data-wish="I hope you always find people and places where you can be completely yourself."><span>🪐</span><strong>Belonging</strong><small>tap to open</small></button>
+<button class="wish" data-wish="I hope the hard days become gentler, and you remember you don't have to have everything figured out."><span>🌙</span><strong>Peace</strong><small>tap to open</small></button>
+<button class="wish" data-wish="I hope new little adventures find you — the kind you'll look back on and smile about."><span>☄️</span><strong>Adventure</strong><small>tap to open</small></button>
+<button class="wish" data-wish="I hope you keep the parts of you that make you uniquely you, even when the world gets loud."><span>💜</span><strong>Confidence</strong><small>tap to open</small></button>
+<button class="wish" data-wish="And most of all, I hope you feel loved — today, tomorrow, and on the random ordinary days too."><span>🫂</span><strong>Love</strong><small>tap to open</small></button>
+</div><p class="edit-hint" id="wishCount">Stars opened: 0 / 6</p>
+</div></section>
+<section class="section" id="letter"><div class="wrap">
+<div class="section-head"><div class="eyebrow">final file · please read slowly</div><h2>One last thing, Sneu…</h2><p class="section-intro">Okay, enough chaos for one minute. This part is yours.</p></div>
+<div class="letter-box"><div class="letter-top">a letter from your online brother · open when ready</div><h3>Dear Snew snew 🤏,</h3>
+<div class="letter-text" id="letterText">Happy birthdayyyyy, Sneu. 🫶
+
+I stillllllllllllllll remember and loveeeeee the time we have in gangster gc and after it. I don't think every meaningful connection has to begin in the same place or happen face-to-face. Sometimes, people just become important to you, and you're really glad they did.
+
+I'm genuinely happy our paths crossed. Thank you for being part of my little corner of the internet and for being someone I get to call my online sis.
+
+I hope this new year of your life brings you so many reasons to smile, people who understand you, peaceful days when you need them, and exciting moments you'll remember for a long, long time.
+
+[ADD A PERSONAL LINE HERE — an inside joke, a thing you appreciate about her, or something you want her to remember.]
+
+No matter how chaotic or random life gets, I hope you never forget that you deserve kindness, happiness, and people who show up for you.
+
+Happy birthday, Snew snew 🤏. I'm rooting for you, always. 🫂💜
+
+— your online bro ♡</div>
+<div class="letter-actions"><button class="primary" id="editBtn">PERSONALIZE THIS LETTER ✎</button><button class="secondary" id="copyBtn">COPY LETTER</button></div>
+<div class="editor" id="editor"><label for="letterEdit">Edit the letter in your own words</label><textarea id="letterEdit" rows="12"></textarea><label for="signatureEdit">Your sign-off (optional)</label><input id="signatureEdit" value="— your online bro ♡"><div class="letter-actions"><button class="primary" id="saveLetter">SAVE MY VERSION</button><button class="secondary" id="cancelEdit">CANCEL</button></div><p class="edit-hint">Your edits stay in this open page only; this file does not upload or send anything.</p></div>
+</div></div></section>
+<footer class="footer"><div class="wrap"><div class="final-star">✦ ✧ ✦</div><h2 style="font-size:1.7rem;color:#e5deff">Different screens. One very real bond.</h2><p>Happy birthday, Sneu. 💜<br>Thanks for being part of this story.</p><button class="secondary" id="againBtn">REVISIT THE STARS ↗</button><p class="tiny" style="margin-top:28px">SNEU.EXE · made with care, chaos, and a tiny 🤏</p></div></footer>
+</div>
+</main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s);
+const toast=(msg)=>{const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2600)};
+$('#enterBtn').addEventListener('click',()=>{$('#journey').hidden=false;$('#journey').style.animation='fade .8s ease';$('#archive').scrollIntoView({behavior:'smooth'});confetti(34);});
+document.querySelectorAll('.card .reveal').forEach(btn=>btn.addEventListener('click',()=>{const c=btn.closest('.card');c.classList.toggle('open');if(c.classList.contains('open'))btn.setAttribute('aria-expanded','true');else btn.setAttribute('aria-expanded','false')}));
+let opened=new Set();document.querySelectorAll('.wish').forEach((b,i)=>b.addEventListener('click',()=>{opened.add(i);b.querySelector('small').textContent='wish unlocked ♡';b.style.borderColor='#d2c6ff99';toast(b.dataset.wish);$('#wishCount').textContent=`Stars opened: ${opened.size} / 6`;if(opened.size===6)confetti(45)}));
+const letterText=$('#letterText'),editor=$('#editor'),letterEdit=$('#letterEdit');let originalLetter=letterText.textContent;
+$('#editBtn').addEventListener('click',()=>{editor.classList.toggle('show');letterEdit.value=letterText.textContent; if(editor.classList.contains('show'))editor.scrollIntoView({behavior:'smooth',block:'center'})});
+$('#cancelEdit').addEventListener('click',()=>editor.classList.remove('show'));
+$('#saveLetter').addEventListener('click',()=>{letterText.textContent=letterEdit.value.trim();const sig=$('#signatureEdit').value.trim();if(sig&&!letterText.textContent.endsWith(sig))letterText.textContent+='\n'+sig;editor.classList.remove('show');toast('Your letter is updated in this page 💜')});
+$('#copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(letterText.textContent);toast('Letter copied. Go make it yours 💌')}catch(e){const r=document.createRange();r.selectNodeContents(letterText);const s=getSelection();s.removeAllRanges();s.addRange(r);toast('Text selected — long-press to copy')}}); 
+$('#againBtn').addEventListener('click',()=>{opened.clear();document.querySelectorAll('.wish small').forEach(x=>x.textContent='tap to open');$('#wishCount').textContent='Stars opened: 0 / 6';$('#home').scrollIntoView({behavior:'smooth'});});
+function confetti(n){const colors=['#c5b8ff','#ffb8d2','#f4eddf','#9bdbff'];for(let i=0;i<n;i++){const e=document.createElement('i');e.className='confetti';e.textContent=Math.random()>.5?'✦':'♥';e.style.left=Math.random()*100+'vw';e.style.color=colors[Math.floor(Math.random()*colors.length)];e.style.fontSize=(10+Math.random()*12)+'px';e.style.animationDelay=(Math.random()*.7)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4000)}}
+// Gentle star field, no external assets required.
+const canvas=$('#sky'),ctx=canvas.getContext('2d');let stars=[],w=0,h=0;
+function resize(){w=canvas.width=innerWidth*devicePixelRatio;h=canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';stars=Array.from({length:Math.min(130,Math.floor(innerWidth/5))},()=>({x:Math.random()*w,y:Math.random()*h,r:(.4+Math.random()*1.5)*devicePixelRatio,a:.2+Math.random()*.7,s:.002+Math.random()*.008,p:Math.random()*6}))}
+function draw(){ctx.clearRect(0,0,w,h);for(const s of stars){s.p+=s.s;ctx.globalAlpha=s.a*(.7+.3*Math.sin(s.p));ctx.fillStyle='#dcd7ff';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;requestAnimationFrame(draw)}
+addEventListener('resize',resize);resize();draw();
+// Optional, user-activated soft ambient tone. No audio starts automatically.
+let audioCtx=null,osc=null,gain=null,soundOn=false;
+$('#soundBtn').addEventListener('click',()=>{if(!soundOn){try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();osc=audioCtx.createOscillator();gain=audioCtx.createGain();osc.type='sine';osc.frequency.value=174.61;gain.gain.value=.018;osc.connect(gain);gain.connect(audioCtx.destination);osc.start();soundOn=true;$('#soundBtn').textContent='♫ sound: on';$('#soundBtn').setAttribute('aria-pressed','true');toast('Soft ambient tone on ♫')}catch(e){toast('Audio is not available in this browser.')}}else{if(osc){osc.stop();osc=null}if(audioCtx){audioCtx.close();audioCtx=null}soundOn=false;$('#soundBtn').textContent='♫ sound: off';$('#soundBtn').setAttribute('aria-pressed','false')}});
+</script>
+</body>
+</html>
